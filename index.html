@@ -1,260 +1,967 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="kangxiao">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
+    <meta charset="utf-8">
+    <meta name="keywords" content="Hexo">
+    <meta name="description" content="Hexo">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Hexo</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
     
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
 
-  
-  
-<link rel="stylesheet" href="/css/style.css">
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+    <!-- index cover -->
+    <!-- <link rel="stylesheet preload" type="text/css" href="/css/indexcover.css"> -->
+    <style>
+        .carousel-control {
+            width: 45px;
+            height: 45px;
+            line-height: 55px;
+            border-radius: 45px;
+            background: transparent;
+            cursor: pointer;
+            z-index: 100;
+        }
+        
+        #prev-cover {
+            position: absolute;
+            top: 48%;
+            left: 8px;
+        }
+        
+        #next-cover {
+            position: absolute;
+            top: 48%;
+            right: 8px;;
+        }
+        
+        #prev-cover i {
+            margin-right: 3px;
+        }
+        
+        #next-cover i {
+            margin-left: 3px;
+        }
+        
+        .carousel-control:hover {
+            background-color: rgba(0, 0, 0, .4);
+        }
+        
+        .carousel-control i {
+            color: #fff;
+            font-size: 2.4rem;
+        }
+    </style>
 
-  
-<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Hexo</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
       
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Hexo</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+
+    <ul class="menu-list mobile-menu-list">
         
-          <a class="main-nav-link" href="/">Home</a>
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
         
-      </nav>
-      <nav id="sub-nav">
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
 </header>
 
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-Android-Gradle依赖管理" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/08/09/Android-Gradle%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86/" class="article-date">
-  <time class="dt-published" datetime="2022-08-09T02:39:42.000Z" itemprop="datePublished">2022-08-09</time>
-</a>
     
-  </div>
-  <div class="article-inner">
+
+
+<div class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
     
+
+    <div class="carousel-item  white-text bg-cover about-cover">
+        <div class="container">
+            <div class="row">
+    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
+        <div class="brand">
+            <div class="title center-align">
+                
+                    subtitle
+                
+            </div>
+
+            <div class="description center-align">
+                
+                <span id="subtitle"></span>
+                <script src="/libs/typed/typed.js"></script>
+                <script>
+                    var typed = new Typed("#subtitle", {
+                        strings: [ 
+                            
+                                "从来没有真正的绝境, 只有心灵的迷途",
+                            
+                                "Never really desperate, only the lost of the soul",
+                            
+                        ],
+                        startDelay: 300,
+                        typeSpeed: 100,
+                        loop: true,
+                        backSpeed: 50,
+                        showCursor: true
+                    });
+                </script>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // 每天切换 banner 图.  Switch banner image every day.
+    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
+    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+</script>
+
+
+
+            <div class="cover-btns">
+                <a href="#indexCard" class="waves-effect waves-light btn">
+                    <i class="fa fa-angle-double-down"></i>开始阅读
+                </a>
+
+                
+                    <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light btn" target="_blank">
+                        <i class="fab fa-github-alt"></i>Github
+                    </a>
+                
+            </div>
+            <div class="cover-social-link">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+        </div>
+    </div>
+
     
-      <header class="article-header">
+</div>
+
+<script>
+    $(function () {
+        let coverSlider = $('.carousel');
+
+        //用户触摸轮播自动 restartPlay 是否生效
+        let initUserPressedOrDraggedActive = false
+
+        //用户触摸轮播自动 restartPlay
+        function initUserPressedOrDragged(instance) {
+            setInterval(() => {
+                if (instance.pressed || instance.dragged) {
+                    // console.log('initUserPressedOrDragged: ',instance.pressed,instance.dragged)
+                    restartPlay()
+                }
+            }, 1000)
+        }
+
+        coverSlider.carousel({
+            duration: Number('120'),
+            fullWidth: true,
+            indicators: 'true' === 'true',
+            onCycleTo() {
+                if (!initUserPressedOrDraggedActive) {
+                    // console.log('initUserPressedOrDraggedActive')
+                    initUserPressedOrDragged(this)
+                    initUserPressedOrDraggedActive = true
+                }
+            },
+        })
+
+        let carouselIntervalId;
         
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/08/09/Android-Gradle%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86/">Android Gradle依赖管理</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="1-Gradle的库依赖"><a href="#1-Gradle的库依赖" class="headerlink" title="1.Gradle的库依赖"></a>1.Gradle的库依赖</h3><p>现在一个Android项目都是需要去引入其他的库，比如<code>jar</code>、<code>aar</code>、<code>Module</code>等等，现在我们分别来介绍下。下面例子的代码如果不特意说明均是写在模块build.gradle中的。 Gradle的本地库依赖 关于jar依赖可以按照如下这么写，可以指定一个也可以指定多个jar。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">//依赖引入libs下所有的jar</span><br><span class="line">implementation fileTree(dir:&#x27;libs&#x27;,include:[&#x27;*.jar&#x27;])</span><br><span class="line"></span><br><span class="line">//指定依赖某一个或几个jar</span><br><span class="line">implementation files(&#x27;libs/XXX.jar&#x27;,&#x27;libs/XXX.jar&#x27;)</span><br><span class="line"></span><br><span class="line">aar依赖需要额外增加一些语句，如下所示。</span><br><span class="line"></span><br><span class="line">android &#123;</span><br><span class="line">    ...</span><br><span class="line">    repositories &#123; </span><br><span class="line">        flatDir &#123;</span><br><span class="line">            dirs &quot;libs&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;    </span><br><span class="line">dependencies &#123;</span><br><span class="line">implementation fileTree(dir:&#x27;libs&#x27;,include:[&#x27;*.aar&#x27;])</span><br><span class="line">implementation(name:&#x27;XXX&#x27;,ext:&#x27;aar&#x27;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>Gradle的本地Module依赖<br>当项目中有多个Module时，我们需要在settings.gradle中引入，如下所示。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">include &#x27;:app&#x27;</span><br><span class="line">include &#x27;:library1&#x27;, &#x27;:library2&#x27;</span><br></pre></td></tr></table></figure>
-
-<p>接着在模块build.gradle引入。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation project(&#x27;:library1&#x27;)</span><br></pre></td></tr></table></figure>
-
-<p>Gradle的远程库依赖<br>当在Android Studio中新建一个项目时，会在项目build.gradle有如下代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">buildscript &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        google()</span><br><span class="line">        jcenter()</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    dependencies &#123;</span><br><span class="line">        classpath &#x27;com.android.tools.build:gradle:3.4.0&#x27;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">allprojects &#123;</span><br><span class="line">    repositories &#123;</span><br><span class="line">        google()</span><br><span class="line">        jcenter()</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>这些代码都是<code>默认的</code>，在buildscript和allprojects块中，通过repositories来引入<code>谷歌的Maven库和JCenter库</code>。首先会从谷歌的Maven库去寻找相应的库，如果找不到会从JCenter库中去寻找。<br>然后在模块build.gradle加入如下的代码，就可以引入远程库。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">implementation group:&#x27;com.android.support&#x27;,name:&#x27;appcompat-v7&#x27;,version:&#x27;28.0.0&#x27;</span><br><span class="line">//简写</span><br><span class="line">implementation &#x27;com.android.support:appcompat-v7:28.0.0&#x27;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2-Gradle的库依赖管理"><a href="#2-Gradle的库依赖管理" class="headerlink" title="2.Gradle的库依赖管理"></a>2.Gradle的库依赖管理</h3><p>随着Gradle依赖的库越来越多，那么必然会产生一些问题，比如依赖冲突的问题，为了解决依赖冲突，我们需要先了解Gradle的库依赖管理的几个技术点。</p>
-<h4 id="2-1-Gradle的依赖传递"><a href="#2-1-Gradle的依赖传递" class="headerlink" title="2.1 Gradle的依赖传递"></a>2.1 Gradle的依赖传递</h4><p>Gradle默认是支持依赖传递的，所以当用到Gradle依赖时一定会涉及到它，是必须要知道的一个知识点。<br>那什么是依赖传递呢？举一个最简单的例子。<br>projectC依赖projectB，projectB依赖projectA，那么projectC就依赖了projectA。<br>依赖传递会产生一些问题，比如重复依赖、依赖错误等问题，那么我们可以通过<code>transitive来禁止依赖传递</code>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">implementation(&#x27;com.xxx.xxx:xxx:3.6.3&#x27;) &#123;</span><br><span class="line">     transitive false</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<p>上面禁止了com.xxx.xxx:xxx:3.6.3库的依赖传递，还可以使用如下语句来关闭当前模块的所有库的依赖传递：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">configurations.all &#123;</span><br><span class="line">   transitive = false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>只不过这样就需要手动添加当前模块的每个库的依赖项，一般不会这么做。</p>
-<h4 id="2-2-Gradle的依赖检查"><a href="#2-2-Gradle的依赖检查" class="headerlink" title="2.2 Gradle的依赖检查"></a>2.2 Gradle的依赖检查</h4><p>有了依赖检查，我们可以解决依赖产生的问题。依赖检查有很多种方式，分别来介绍下。</p>
-<p><strong>使用Gradle的命令行</strong></p>
-<p>可以直接使用Gradle的命令行来进行依赖检查，拿Windows平台来说，使用cmd进入项目的根目录，执行gradle :app:dependencies即可，其中app是我们新建工程时默认的模块的名称。日志输出很多，下面截取一部分:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">+--- com.android.support:appcompat-v7:28.0.0</span><br><span class="line">|    +--- com.android.support:support-annotations:28.0.0 //1</span><br><span class="line">|    +--- com.android.support:support-compat:28.0.0 //2</span><br><span class="line">|    |    +--- com.android.support:support-annotations:28.0.0</span><br><span class="line">|    |    +--- com.android.support:collections:28.0.0</span><br><span class="line">|    |    |    \--- com.android.support:support-annotations:28.0.0</span><br><span class="line">|    |    +--- android.arch.lifecycle:runtime:1.1.1</span><br><span class="line">|    |    |    +--- android.arch.lifecycle:common:1.1.1</span><br><span class="line">|    |    |    |    \--- com.android.support:support-annotations:26.1.0 -&gt; 28.0.0 //3</span><br><span class="line">|    |    |    +--- android.arch.core:common:1.1.1</span><br><span class="line">|    |    |    |    \--- com.android.support:support-annotations:26.1.0 -&gt; 28.0.0</span><br><span class="line">|    |    |    \--- com.android.support:support-annotations:26.1.0 -&gt; 28.0.0</span><br><span class="line">|    |    \--- com.android.support:versionedparcelable:28.0.0</span><br><span class="line">|    |         +--- com.android.support:support-annotations:28.0.0</span><br><span class="line">|    |         \--- com.android.support:collections:28.0.0 (*)</span><br></pre></td></tr></table></figure>
-
-<p>上面是appcompat-v7:28.0.0库的依赖树的一小部分，appcompat-v7:28.0.0依赖了注释1处和注释2的库，注释2处的库又依赖了com.android.support:support-annotations:28.0.0和com.android.support:collections:28.0.0，因此当我们引入appcompat-v7:28.0.0时，会自动下载所有它依赖传递的库。注释3处说明，Gradle在依赖传递时，会自动提升依赖传递的库的版本，默认使用最高版本的库。</p>
-<p><strong>使用Gradle面板</strong><br>除了命令行，还可以使用Android Studio中的右侧的Gradle面板，找到app模块，展开后找到help目录中的dependencies，如下图所示。<br><img src="evernotecid://3AE6BCFA-43EB-4E33-9C82-12CD2819437C/appyinxiangcom/25765268/ENResource/p83" alt="ef5f86c42262361798ed2b2e1e6b7e29.png"><br>双击或者右键选择第一个选项即可执行命令，日志就会在AS中Run窗口中打印出来。<br>现在再举个例子，拿我们熟悉的retrofit举例，在模块build.gradle中引入retrofit：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation &#x27;com.squareup.retrofit2:retrofit:2.6.0&#x27;</span><br></pre></td></tr></table></figure>
-<p>执行依赖检查命令，打印的关于retrofit的日志如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+--- com.squareup.retrofit2:retrofit:2.6.0</span><br><span class="line">|    \--- com.squareup.okhttp3:okhttp:3.12.0</span><br><span class="line">|         \--- com.squareup.okio:okio:1.15.0</span><br></pre></td></tr></table></figure>
-<p>可以很清楚看到retrofit:2.6.0依赖okhttp:3.12.0，而okhttp:3.12.0依赖okio:1.15.0。<br>这时我们使用2.1小节的transitive试试，修改build.gradle：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">implementation (&#x27;com.squareup.retrofit2:retrofit:2.6.0&#x27;) &#123;</span><br><span class="line">      transitive false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>执行依赖检查命令，打印的关于retrofit的日志如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+--- com.squareup.retrofit2:retrofit:2.6.0</span><br></pre></td></tr></table></figure>
-<p><strong>使用Gradle View插件</strong><br>如果你觉得前两种方式查看不方便、不直观，还可以使用Android Studio的Gradle View插件。<br>在AS中选择File–&gt;Settings–&gt;Plugins中搜索gradle view，找到Gradle View插件安装并重启AS，如下图所示。<br><img src="evernotecid://3AE6BCFA-43EB-4E33-9C82-12CD2819437C/appyinxiangcom/25765268/ENResource/p84" alt="6e7ab063741835338cbd6100ab500101.png"><br>接下来选择View-–&gt;Tools Windows–Gradle View，这时就可以在AS的底部发现Gradle View窗口，里面会显示当前项目的所有依赖树，如下图所示。<br><img src="evernotecid://3AE6BCFA-43EB-4E33-9C82-12CD2819437C/appyinxiangcom/25765268/ENResource/p85" alt="fc01e7b0f56cbe160b64bcdda69ed17f.png"></p>
-<h4 id="2-3-Gradle的依赖冲突"><a href="#2-3-Gradle的依赖冲突" class="headerlink" title="2.3 Gradle的依赖冲突"></a>2.3 Gradle的依赖冲突</h4><p>依赖冲突产生的原因多是库的版本问题，举个例子，如果在build.gradle中这么写：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">implementation &#x27;com.squareup.retrofit2:retrofit:2.6.0&#x27;</span><br><span class="line">implementation &#x27;com.squareup.okio:okio:1.14.0&#x27;</span><br></pre></td></tr></table></figure>
-<p>在2.2小节中，我们知道retrofit:2.6.0依赖的okio的版本是1.15.0，而这里引入的okio的版本为1.14.0，引入的版本不同就会产生依赖冲突。依赖冲突的解决的关键有两点，一个是Gradle的依赖检查，这个在2.2小节已经讲过了，另一个是利用Gradle的关键字，合理利用它们是解决依赖冲突的关键，在2.1小节已经介绍了 transitive，现在介绍其余的。</p>
-<h5 id="2-3-1-force"><a href="#2-3-1-force" class="headerlink" title="2.3.1 force"></a>2.3.1 force</h5><p>有时候我们不是想要排除某个库，而是需要强制使用统一的库的版本，force可以强制设置模块的库的版本，在模块build.gradle中加入如下代码。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">configurations.all &#123;</span><br><span class="line">    resolutionStrategy &#123;</span><br><span class="line">        force &#x27;com.squareup.okio:okio:2.1.0&#x27;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">dependencies &#123;</span><br><span class="line">...</span><br><span class="line">｝</span><br></pre></td></tr></table></figure>
-<p>强制当前模块的okio的版本为2.1.0，使用依赖检查来查看下retrofit的依赖：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">+--- com.squareup.retrofit2:retrofit:2.6.0</span><br><span class="line">|    \--- com.squareup.okhttp3:okhttp:3.12.0</span><br><span class="line">|         \--- com.squareup.okio:okio:1.15.0 -&gt; 2.1.0</span><br><span class="line">\--- com.squareup.okio:okio:1.14.0 -&gt; 2.1.0</span><br></pre></td></tr></table></figure>
-<p>可以看到okio的版本都被强制升级到了2.1.0，这样就可以解决一些依赖冲突的问题。</p>
-<h5 id="2-3-2-exclude"><a href="#2-3-2-exclude" class="headerlink" title="2.3.2 exclude"></a>2.3.2 exclude</h5><p>有些时候需要排除库依赖传递中涉及的库，此时不能靠关闭依赖传递来解决问题，这时可以使用exclude。<br>我们知道com.android.support:appcompat-v7:28.0.0依赖于com.android.support:support-annotations:28.0.0、com.android.support:support-compat:28.0.0、com.android.support:cursoradapter:28.0.0等库，这时我们不想再依赖support-annotations库，可以这么写。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">configurations &#123;</span><br><span class="line">    all*.exclude group: &#x27;com.android.support&#x27;, module: &#x27;support-annotations&#x27;</span><br><span class="line">&#125;</span><br><span class="line">dependencies &#123;</span><br><span class="line">...</span><br><span class="line">｝</span><br></pre></td></tr></table></figure>
-<p>使用依赖检查来查看com.android.support:appcompat-v7:28.0.0的依赖：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">+--- com.android.support:appcompat-v7:28.0.0</span><br><span class="line">|    +--- com.android.support:support-compat:28.0.0</span><br><span class="line">|    |    +--- com.android.support:collections:28.0.0</span><br><span class="line">|    |    +--- android.arch.lifecycle:runtime:1.1.1</span><br><span class="line">|    |    |    +--- android.arch.lifecycle:common:1.1.1</span><br><span class="line">|    |    |    \--- android.arch.core:common:1.1.1</span><br><span class="line">|    |    \--- com.android.support:versionedparcelable:28.0.0</span><br><span class="line">|    |         \--- com.android.support:collections:28.0.0</span><br><span class="line">|    +--- com.android.support:collections:28.0.0</span><br><span class="line">|    +--- com.android.support:cursoradapter:28.0.0</span><br></pre></td></tr></table></figure>
-<p>和2.2节的日志对比下，可以发现com.android.support:appcompat-v7:28.0.0不再依赖com.android.support:support-annotations:28.0，目的达到了。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/08/09/Android-Gradle%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86/" data-id="cl9qgro0o0000n8fyge9i5bx6" data-title="Android Gradle依赖管理" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/" rel="tag">Android</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-</section>
+        // Loop to call the next cover article picture.
+        let autoCarousel = function () {
+            carouselIntervalId = setInterval(function () {
+                coverSlider.carousel('next');
+            }, 5000);
+        };
+        autoCarousel();
         
-          <aside id="sidebar">
-  
-    
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li></ul>
-    </div>
-  </div>
+        function restartPlay() {
+            
+            clearInterval(carouselIntervalId);
+            autoCarousel();
+            
+        };
 
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 10px;">Android</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
         
-          <li>
-            <a href="/2022/08/09/Android-Gradle%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86/">Android Gradle依赖管理</a>
-          </li>
+        // prev and next cover post.
+        $('#prev-cover').click(function () {
+            coverSlider.carousel('prev');
+            restartPlay();
+        });
+        $('#next-cover').click(function () {
+            coverSlider.carousel('next');
+            restartPlay();
+        });
         
-      </ul>
-    </div>
-  </div>
+    });
+</script>
 
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2022 kangxiao<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+
+
+<main class="content">
+
+    
+    <div id="indexCard" class="index-card">
+        <div class="container ">
+            <div class="card">
+                <div class="card-content">
+                    
+                        <div class="dream">
+    
+    <div class="title center-align">
+        <i class="far fa-lightbulb"></i>&nbsp;&nbsp;我的梦想
     </div>
-  </div>
+    
+    <div class="row">
+        <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
+            不是每个人都应该像我这样去建造一座水晶大教堂，但是每个人都应该拥有自己的梦想，设计自己的梦想，追求自己的梦想，实现自己的梦想。梦想是生命的灵魂，是心灵的灯塔，是引导人走向成功的信仰。有了崇高的梦想，只要矢志不渝地追求，梦想就会成为现实，奋斗就会变成壮举，生命就会创造奇迹。——罗伯·舒乐
+        </div>
+    </div>
+</div>
+
+                    
+
+                    
+
+                    
+
+                    
+                    <div id="recommend-sections" class="recommend">
+                        
+
+
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    
+
+    <!-- 所有文章卡片 -->
+    <article id="articles" class="container articles">
+        <div class="row article-row">
+            
+             <!-- 隐藏某个文章 -->
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/08/09/Android-Gradle%E4%BE%9D%E8%B5%96%E7%AE%A1%E7%90%86/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Android Gradle依赖管理">
+                            
+                            <span class="card-title">Android Gradle依赖管理</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                1.Gradle的库依赖现在一个Android项目都是需要去引入其他的库，比如jar、aar、Module等等，现在我们分别来介绍下。下面例子的代码如果不特意说明均是写在模块build.gradle中的。 Gradle的本地库依赖 关于ja
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-09
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                kangxiao
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/Android/">
+                            <span class="chip bg-color">Android</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+              <!-- 隐藏某个文章 -->
+            
+        </div>
+    </article>
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2022</span>
+            
+            <a href="/about" target="_blank">kangxiao</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
 </footer>
 
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
     
 
+    
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+    <!-- 雪花特效 -->
+    
 
+    <!-- 鼠标星星特效 -->
+    
 
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
 
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+    <!-- Baidu Analytics -->
 
+    <!-- Baidu Push -->
 
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
 
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
 
-<script src="/js/script.js"></script>
+    
 
+    
 
+    <!--腾讯兔小巢-->
+    
+    
 
+    
 
+    
 
-  </div>
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
 </body>
+
 </html>
